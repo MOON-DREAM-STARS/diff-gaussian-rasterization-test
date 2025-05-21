@@ -245,10 +245,10 @@ void saveSortPairsData(
 		uint32_t before_tile_id = before_key >> 32;
 		uint32_t before_depth_bits = before_key & 0xFFFFFFFF;
 
-		file << i << ","
-			 << before_key << ","
+		file << "0x" << std::hex << i << std::dec << ","		  // index十六进制
+			 << "0x" << std::hex << before_key << std::dec << "," // key十六进制
 			 << before_tile_id << ","
-			 << before_depth_bits << ","
+			 << "0x" << std::hex << before_depth_bits << std::dec << "," // depth_bits十六进制
 			 << h_values_before[i];
 
 		if (h_keys_after != nullptr && h_values_after != nullptr)
@@ -258,9 +258,9 @@ void saveSortPairsData(
 			uint32_t after_depth_bits = after_key & 0xFFFFFFFF;
 
 			file << ","
-				 << after_key << ","
+				 << "0x" << std::hex << after_key << std::dec << ","
 				 << after_tile_id << ","
-				 << after_depth_bits << ","
+				 << "0x" << std::hex << after_depth_bits << std::dec << ","
 				 << h_values_after[i];
 		}
 
